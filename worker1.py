@@ -27,13 +27,13 @@ if job_name == "ps":
     server.join()
 else:
     with tf.compat.v1.Session(server.target) as sess:
-        time.sleep(1)
+        time.sleep(3)
         with tf.device('/job:worker/replica:0/task:0/device:CPU:0'):
             a = tf.Variable(tf.zeros([2, 2]), name='a')
             print(sess.run(a))
         with tf.device('/job:worker/replica:0/task:1/device:CPU:0'):
             b = tf.Variable(tf.ones([2, 2]), name='b')
             sess.run(tf.compat.v1.global_variables_initializer())
-        # print(sess.run(a))
+            print(sess.run(b))
         time.sleep(10)
         exit(0)

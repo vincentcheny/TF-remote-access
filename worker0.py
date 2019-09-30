@@ -29,7 +29,7 @@ else:
     with tf.compat.v1.Session(server.target) as sess:
         with tf.device('/job:worker/replica:0/task:0/device:CPU:0'):
             a = tf.Variable(tf.ones([1, 1]), name='a')
-        sess.run(tf.compat.v1.global_variables_initializer())
-        # print(sess.run(a))
+            sess.run(tf.compat.v1.global_variables_initializer())
+            print(sess.run(a))
         time.sleep(10)
         exit(0)
