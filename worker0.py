@@ -7,7 +7,7 @@ import time
 tfds.disable_progress_bar()
 # tf.compat.v1.disable_eager_execution()
 
-CLUSTER_SPEC = {"worker": ["localhost:1111", "localhost:1112"]}
+CLUSTER_SPEC = {"worker": ["localhost:1111", "localhost:1112", "localhost:1113"]}
 
 
 def start_server(job_name, task_index, tf_config):
@@ -31,7 +31,7 @@ if job_name == "ps":
     server.join()
 else:
     with tf.compat.v1.Session(server.target) as sess:
-        a = tf.Variable(tf.ones([2, 2]), name='a')
+        a = tf.Variable(tf.ones([6, 6]), name='a')
         sess.run(tf.compat.v1.global_variables_initializer())
         print(sess.run(a))
         time.sleep(10)

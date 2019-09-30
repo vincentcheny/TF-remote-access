@@ -1,13 +1,13 @@
 from __future__ import absolute_import, division, print_function
+from google.protobuf import text_format
 import tensorflow as tf
 import tensorflow_datasets as tfds
 import time
-import numpy as np
 
 tfds.disable_progress_bar()
 # tf.compat.v1.disable_eager_execution()
 
-CLUSTER_SPEC = {"worker": ["localhost:1111", "localhost:1112"]}
+CLUSTER_SPEC = {"worker": ["localhost:1111", "localhost:1112", "localhost:1113"]}
 
 
 def start_server(job_name, task_index, tf_config):
@@ -25,16 +25,14 @@ tf_config = tf.compat.v1.ConfigProto(allow_soft_placement=True, log_device_place
 # Start a server.
 server, cluster = start_server(job_name, task_index, tf_config)
 
-# a = tf.Variable(tf.ones([3, 3]), name='a')
+a = tf.Variable(2.0, name='a')
 
 if job_name == "ps":
     server.join()
 else:
     with tf.compat.v1.Session(server.target) as sess:
-        time.sleep(2)
-        with tf.device('/job:worker/replica:0/task:0/device:CPU:0'):
-            a = tf.Variable(tf.zeros([2, 2]), name='a')
-            sess.run(tf.compat.v1.global_variables_initializer())
-            print(sess.run(a))
-            exit(0)
-
+        a = tf.Variable(tf.ones([2, 2]), name='a')
+        sess.run(tf.compat.v1.global_variables_initializer())
+        print(sess.run(a))
+        time.sleep(10)
+        exit(0)
