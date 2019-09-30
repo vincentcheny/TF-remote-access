@@ -31,3 +31,6 @@ else:
         with tf.device('/job:worker/replica:0/task:0/device:CPU:0'):
             a = tf.Variable(tf.zeros([3, 3]), name='a')
             print(sess.run(a))
+        with tf.device('/job:worker/replica:0/task:1/device:CPU:0'):
+            b = tf.Variable(tf.zeros([3, 3]), name='b')
+            print(sess.run(b))
