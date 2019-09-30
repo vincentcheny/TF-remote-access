@@ -26,9 +26,11 @@ server, cluster = start_server(job_name, task_index, tf_config)
 if job_name == "ps":
     server.join()
 else:
+
+    b = tf.Variable(tf.ones([2, 2]), name='b')
+
     with tf.compat.v1.Session(server.target) as sess:
-        b = tf.Variable(tf.ones([2, 2]), name='b')
         sess.run(tf.compat.v1.global_variables_initializer())
-        # print(sess.run(a))
+        print(sess.run(b))
         time.sleep(10)
         exit(0)

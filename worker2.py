@@ -26,8 +26,9 @@ server, cluster = start_server(job_name, task_index, tf_config)
 if job_name == "ps":
     server.join()
 else:
+    with tf.device('/job:worker/task:1'):
+        b = tf.Variable(tf.zeros([3, 3]), name='b')
+
     with tf.compat.v1.Session(server.target) as sess:
         time.sleep(2)
-        with tf.device('/job:worker/replica:0/task:0/device:CPU:0'):
-            a = tf.Variable(tf.zeros([3, 3]), name='a')
-            print(sess.run(a))
+        print(sess.run(b))
