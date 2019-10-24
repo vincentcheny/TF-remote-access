@@ -1,0 +1,21 @@
+/home/vincent/miniconda3/envs/cpu/bin/python /home/vincent/Desktop/GitReporsitory/TF-remote-access/worker1_kill_progrom.py
+2019-10-24 15:32:37.782585: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3699870000 Hz
+2019-10-24 15:32:37.783262: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x55b62468af50 executing computations on platform Host. Devices:
+2019-10-24 15:32:37.783279: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (0): Host, Default Version
+2019-10-24 15:32:37.784433: I tensorflow/core/distributed_runtime/rpc/grpc_channel.cc:258] Initialize GrpcChannelCache for job worker -> {0 -> localhost:1111, 1 -> localhost:1112}
+2019-10-24 15:32:37.785440: I tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc:365] Started server with target: grpc://localhost:1112
+Start a session.
+WARNING:tensorflow:From /home/vincent/miniconda3/envs/cpu/lib/python3.6/site-packages/tensorflow_core/python/ops/resource_variable_ops.py:1630: calling BaseResourceVariable.__init__ (from tensorflow.python.ops.resource_variable_ops) with constraint is deprecated and will be removed in a future version.
+Instructions for updating:
+If using Keras pass *_constraint arguments to layers.
+2019-10-24 15:32:39.805051: I tensorflow/core/common_runtime/placer.cc:54] a/IsInitialized/VarIsInitializedOp: (VarIsInitializedOp): /job:worker/replica:0/task:0/device:CPU:0
+2019-10-24 15:32:39.805075: I tensorflow/core/common_runtime/placer.cc:54] a/Assign: (AssignVariableOp): /job:worker/replica:0/task:0/device:CPU:0
+2019-10-24 15:32:39.805108: I tensorflow/core/common_runtime/placer.cc:54] a/Read/ReadVariableOp: (ReadVariableOp): /job:worker/replica:0/task:0/device:CPU:0
+2019-10-24 15:32:39.805138: I tensorflow/core/common_runtime/placer.cc:54] zeros: (Const): /job:worker/replica:0/task:0/device:CPU:0
+2019-10-24 15:32:39.805160: I tensorflow/core/common_runtime/placer.cc:54] a: (VarHandleOp): /job:worker/replica:0/task:0/device:CPU:0
+a/IsInitialized/VarIsInitializedOp: (VarIsInitializedOp): /job:worker/replica:0/task:0/device:CPU:0
+a/Assign: (AssignVariableOp): /job:worker/replica:0/task:0/device:CPU:0
+a/Read/ReadVariableOp: (ReadVariableOp): /job:worker/replica:0/task:0/device:CPU:0
+zeros: (Const): /job:worker/replica:0/task:0/device:CPU:0
+a: (VarHandleOp): /job:worker/replica:0/task:0/device:CPU:0
+[[1.]]

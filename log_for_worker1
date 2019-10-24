@@ -1,0 +1,33 @@
+/home/vincent/miniconda3/envs/cpu/bin/python /home/vincent/Desktop/GitReporsitory/TF-remote-access/worker1.py
+Start a while loop.
+2019-10-24 15:27:19.498618: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3699870000 Hz
+2019-10-24 15:27:19.499086: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x55dbc6ebc950 executing computations on platform Host. Devices:
+2019-10-24 15:27:19.499100: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (0): Host, Default Version
+2019-10-24 15:27:19.500632: I tensorflow/core/distributed_runtime/rpc/grpc_channel.cc:258] Initialize GrpcChannelCache for job worker -> {0 -> localhost:1111, 1 -> localhost:1112}
+2019-10-24 15:27:19.502162: I tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc:365] Started server with target: grpc://localhost:1112
+Start a session.
+WARNING:tensorflow:From /home/vincent/miniconda3/envs/cpu/lib/python3.6/site-packages/tensorflow_core/python/ops/resource_variable_ops.py:1630: calling BaseResourceVariable.__init__ (from tensorflow.python.ops.resource_variable_ops) with constraint is deprecated and will be removed in a future version.
+Instructions for updating:
+If using Keras pass *_constraint arguments to layers.
+2019-10-24 15:27:21.518031: I tensorflow/core/common_runtime/placer.cc:54] a/IsInitialized/VarIsInitializedOp: (VarIsInitializedOp): /job:worker/replica:0/task:0/device:CPU:0
+2019-10-24 15:27:21.518091: I tensorflow/core/common_runtime/placer.cc:54] a/Assign: (AssignVariableOp): /job:worker/replica:0/task:0/device:CPU:0
+2019-10-24 15:27:21.518115: I tensorflow/core/common_runtime/placer.cc:54] a/Read/ReadVariableOp: (ReadVariableOp): /job:worker/replica:0/task:0/device:CPU:0
+2019-10-24 15:27:21.518144: I tensorflow/core/common_runtime/placer.cc:54] zeros: (Const): /job:worker/replica:0/task:0/device:CPU:0
+2019-10-24 15:27:21.518166: I tensorflow/core/common_runtime/placer.cc:54] a: (VarHandleOp): /job:worker/replica:0/task:0/device:CPU:0
+a/IsInitialized/VarIsInitializedOp: (VarIsInitializedOp): /job:worker/replica:0/task:0/device:CPU:0
+a/Assign: (AssignVariableOp): /job:worker/replica:0/task:0/device:CPU:0
+a/Read/ReadVariableOp: (ReadVariableOp): /job:worker/replica:0/task:0/device:CPU:0
+zeros: (Const): /job:worker/replica:0/task:0/device:CPU:0
+a: (VarHandleOp): /job:worker/replica:0/task:0/device:CPU:0
+E1024 15:27:21.529517678   10813 server_chttp2.cc:40]        {"created":"@1571902041.529406189","description":"No address added out of total 1 resolved","file":"external/grpc/src/core/ext/transport/chttp2/server/chttp2_server.cc","file_line":348,"referenced_errors":[{"created":"@1571902041.529402117","description":"Failed to add any wildcard listeners","file":"external/grpc/src/core/lib/iomgr/tcp_server_posix.cc","file_line":324,"referenced_errors":[{"created":"@1571902041.529370677","description":"Unable to configure socket","fd":19,"file":"external/grpc/src/core/lib/iomgr/tcp_server_utils_posix_common.cc","file_line":217,"referenced_errors":[{"created":"@1571902041.529347680","description":"Address already in use","errno":98,"file":"external/grpc/src/core/lib/iomgr/tcp_server_utils_posix_common.cc","file_line":190,"os_error":"Address already in use","syscall":"bind"}]},{"created":"@1571902041.529401387","description":"Unable to configure socket","fd":19,"file":"external/grpc/src/core/lib/iomgr/tcp_server_utils_posix_common.cc","file_line":217,"referenced_errors":[{"created":"@1571902041.529395410","description":"Address already in use","errno":98,"file":"external/grpc/src/core/lib/iomgr/tcp_server_utils_posix_common.cc","file_line":190,"os_error":"Address already in use","syscall":"bind"}]}]}]}
+2019-10-24 15:27:21.529581: E tensorflow/core/distributed_runtime/rpc/grpc_server_lib.cc:449] Unknown: Could not start gRPC server
+Traceback (most recent call last):
+  File "/home/vincent/Desktop/GitReporsitory/TF-remote-access/worker1.py", line 23, in <module>
+[[1.]]
+Start a while loop.
+    server, cluster = start_server(job_name, task_index, tf_config)
+  File "/home/vincent/Desktop/GitReporsitory/TF-remote-access/worker1.py", line 12, in start_server
+    cluster, config=tf_config, job_name=job_name, task_index=task_index)
+  File "/home/vincent/miniconda3/envs/cpu/lib/python3.6/site-packages/tensorflow_core/python/training/server_lib.py", line 147, in __init__
+    self._server = c_api.TF_NewServer(self._server_def.SerializeToString())
+tensorflow.python.framework.errors_impl.UnknownError: Could not start gRPC server
