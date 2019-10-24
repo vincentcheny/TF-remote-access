@@ -17,15 +17,16 @@ def start_server(job_name, task_index, tf_config):
 
 
 job_name = "worker"
-task_index = 0
+task_index = 1
 # Set up tensorflow configuration.
 tf_config = tf.compat.v1.ConfigProto(allow_soft_placement=True, log_device_placement=True)
 # Start a server.
 server, cluster = start_server(job_name, task_index, tf_config)
 
 with tf.compat.v1.Session(server.target) as sess:
+    print("Start a session.")
+    time.sleep(2)
     with tf.device('/job:worker/replica:0/task:0/device:CPU:0'):
-        a = tf.Variable(tf.ones([1, 1]), name='a')
-        sess.run(tf.compat.v1.global_variables_initializer())
+        a = tf.Variable(tf.zeros([2, 2]), name='a')
         print(sess.run(a))
-        time.sleep(30)
+        exit(1)
